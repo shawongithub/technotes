@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.HomePage, name='homepage'),
+    path('', views.NoteList.as_view(), name='homepage'),
     path('account/', include('App_Login.urls')),
+    path('notes/', include('App_Notes.urls')),
 ]

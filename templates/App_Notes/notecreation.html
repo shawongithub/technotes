@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block title_block %}
+NoteCreation {% endblock %} {% block body_block %}
+<h1>hello. this is domain creation form</h1>
+<form method="POST">
+  {% csrf_token %} {{form|crispy}}
+  <button class="btn btn-primary btn-sm">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title_block %} Domains {% endblock %}
+{% block body_block %}
+{% for domain in object_list %}
+
+<div class="row">
+    <div class="col-sm-6">
+     <p><h4>Name:{{domain.name}}</h4></p>
+     <br/>
+     <p><h6>DNS:{{domain.dns}}</h6></p>
+    </div>
+    <div class="col-sm-6">
+      <p><h4>status: {{domain.hostingstatus}}</h4></p>
+      <p><h6>provider: {{domain.hostingprovider}}</h6></p>
+      <p><h6>Expiry date: {{domain.expire_date}}</h6></p>
+      <br>
+      <h6>{{domain.publish_date}}</h6> 
+
+      <a href="{% url 'domain:detail' pk=domain.pk %}">Detail</a>
+     
+    </div>
+  </div>
+  <hr>
+{% endfor %}
+{% endblock %}

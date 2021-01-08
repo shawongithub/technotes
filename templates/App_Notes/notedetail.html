@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title_block %} Detail {% endblock %}
+{% block body_block %}
+
+
+<div class="row">
+    <div class="col-sm-6">
+     <p><h4>{{note.title}}</h4></p>
+    </div>
+    <div class="col-sm-6">
+      <p>Notes: {{note.body}}</p>
+      <p><h6>{{note.author}}</h6></p>
+      <br>
+      <h6>{{note.publish_date}}</h6> 
+    </div>
+    <a href="{% url 'App_Notes:update' pk=note.id %}"> Update Note</a>
+  </div>
+  <hr>
+
+{% endblock %}
