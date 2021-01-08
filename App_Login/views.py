@@ -20,7 +20,7 @@ def sign_up(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('signup successfully')
+            return HttpResponseRedirect(reverse('homepage'))
     return render(request, 'App_Login/sign_up.html', context={'form': form})
 
 
