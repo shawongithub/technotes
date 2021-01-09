@@ -15,6 +15,8 @@
       <h6>{{note.publish_date}}</h6> 
     </div>
     <a href="{% url 'App_Notes:update' pk=note.id %}"> Update Note</a>
+    <br/>
+    <a href="{% url 'App_Notes:delete' pk=note.id %}">Delete Note</a>
   </div>
   <hr>
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect, HttpResponse
 from django.urls import reverse, reverse_lazy
 
 
@@ -39,5 +39,27 @@ class UpdateNote(LoginRequiredMixin, UpdateView):
     fields = ('title', 'body')
     template_name = 'App_Notes/updatenote.html'
 
+    def form_valid(self, form):
+        print(self.request.user)
+
     def get_success_url(self, **kwargs):
         return reverse_lazy('App_Notes:detail', kwargs={'pk': self.object.pk})
+
+
+class DeleteNote(LoginRequiredMixin, DeleteView):
+    model = Notes
+    template_name = 'App_Notes/confirm_delete.html'
+    success_url = reverse_lazy('homepage')
+
+
+class SearchResultsView(ListView):
+    model = Notes
+    template_name = 'App_Notes/searchresult.html'
+
+    def get_queryset(self):  # new
+        query = self.request.GET.get('q')
+        object_list = Notes.objects.filter(
+            # search will be performed according to title and body
+            Q(title__icontains=query) | Q(body__icontains=query)
+        )
+        return object_list  # object_list will be returned to searchresult.html template
