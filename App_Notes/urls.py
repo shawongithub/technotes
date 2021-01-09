@@ -9,4 +9,7 @@ urlpatterns = [
     path('update/<int:pk>/', views.UpdateNote.as_view(), name='update'),
     path('delete/<int:pk>/', views.DeleteNote.as_view(), name='delete'),
     path('search/', views.SearchResultsView.as_view(), name='search'),
+    path('share/<int:pk>/', views.Share, name='share'),
+    path('public/', views.SharedPost, name='public'),
+    path('mynotes/', views.MyNotes, name='mynotes'),
 ]

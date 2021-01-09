@@ -60,3 +60,29 @@ class SearchResultsView(ListView):
             Q(title__icontains=query) | Q(body__icontains=query)
         )
         return object_list  # object_list will be returned to searchresult.html template
+
+
+@ login_required
+def Share(request, pk):
+    print(request.user)
+    note = Notes.objects.get(pk=pk)
+    if request.user == note.author:
+        note.shared = not note.shared
+        note.save()
+    return HttpResponseRedirect(reverse('homepage'))
+
+
+@ login_required
+def SharedPost(request):
+    notes = Notes.objects.filter(shared=True)
+    context = {'notes': notes}
+    print(notes)
+    return render(request, 'App_Notes/sharedpost.html', context)
+
+
+@ login_required
+def MyNotes(request):
+    notes = Notes.objects.filter(author=request.user)
+    context = {'notes': notes}
+
+    return render(request, 'App_Notes/mynotes.html', context)

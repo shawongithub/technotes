@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title_block %} Notes {% endblock %}
+{% block body_block %}
+
+{% for note in notes %}
+
+<div class="row">
+    <div class="col-sm-6">
+     <p><h4>{{note.title}}</h4></p>
+     <p><a href="{% url 'App_Notes:update' pk=note.id %}"> Update Note | </a></p>
+      <p> <a href="{% url 'App_Notes:delete' pk=note.id %}"> Delete Note | </a> </p> 
+      {% if note.shared %}
+      <p><a href="{% url 'App_Notes:share' pk=note.id %}">Make Private </a></p>
+      {% else %}
+      <p><a href="{% url 'App_Notes:share' pk=note.id %}">Share </a></p>
+      {% endif %}
+    </div>
+    <div class="col-sm-6">
+      <p> {{note.body}}</p>
+      <br>
+      <h6>{{note.publish_date}}</h6> 
+      
+    </div>
+  </div>
+  <hr>
+{% endfor %}
+{% endblock %}

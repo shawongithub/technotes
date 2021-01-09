@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">Tech_Notes </a>
+    <a class="navbar-brand" href="{% url 'homepage' %}">Tech_Notes </a>
+    <a class="navbar-brand" href="{% url 'App_Notes:public' %}">Public Notes </a>
     <button
       type="button"
       class="navbar-toggler"
@@ -36,6 +37,9 @@
             <a class="dropdown-item" href="{% url 'App_Notes:create' %}"
               >Take Note</a
             >
+            <a class="dropdown-item" href="{% url 'App_Notes:mynotes' %}"
+            >My Notes</a>
+
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{% url 'App_Login:logout' %}"
               >Logout</a
