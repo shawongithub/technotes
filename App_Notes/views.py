@@ -39,9 +39,6 @@ class UpdateNote(LoginRequiredMixin, UpdateView):
     fields = ('title', 'body')
     template_name = 'App_Notes/updatenote.html'
 
-    def form_valid(self, form):
-        print(self.request.user)
-
     def get_success_url(self, **kwargs):
         return reverse_lazy('App_Notes:detail', kwargs={'pk': self.object.pk})
 
