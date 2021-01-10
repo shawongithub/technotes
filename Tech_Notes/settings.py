@@ -15,7 +15,7 @@ SECRET_KEY = 'jnpz5=9yk8a#v+%(erndyk)1l!mpyr@h%4!-jej6u3dm7-thw#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://tech-notes-shawon.herokuapp.com/']
+ALLOWED_HOSTS = ['tech-notes-shawon.herokuapp.com']
 
 
 # Application definition
