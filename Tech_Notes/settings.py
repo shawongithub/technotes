@@ -38,6 +38,7 @@ AUTH_USER_MODEL = 'App_Login.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -116,3 +117,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_URL = '/account/login/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
