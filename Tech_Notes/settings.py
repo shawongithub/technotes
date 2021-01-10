@@ -13,9 +13,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'jnpz5=9yk8a#v+%(erndyk)1l!mpyr@h%4!-jej6u3dm7-thw#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://tech-notes-by-shawon.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
