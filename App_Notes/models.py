@@ -8,6 +8,8 @@ class Notes(models.Model):
     title = models.CharField(max_length=264, verbose_name="Put a Title")
     body = models.TextField()
     shared = models.BooleanField(default=False)
+    shared_with = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, related_name="shared_users")
     publish_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:

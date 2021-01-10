@@ -69,7 +69,7 @@ def Share(request, pk):
     if request.user == note.author:
         note.shared = not note.shared
         note.save()
-    return HttpResponseRedirect(reverse('homepage'))
+    return HttpResponseRedirect(reverse('App_Notes:public'))
 
 
 @ login_required
